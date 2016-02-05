@@ -18,10 +18,12 @@ int main()
 	stackOne.push(4);
 	stackOne.push(5);
 	cout << stackOne.top() << endl;
-	cout << endl;
 	while(!stackOne.empty())
 	{
 		cout << stackOne.pop() << endl;
 	}
+	stackOne.pop();
+
+
 	return 0;
 }

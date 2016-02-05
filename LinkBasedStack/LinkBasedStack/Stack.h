@@ -41,22 +41,26 @@ unsigned int Stack<T>::size()
 template <typename T>
 void Stack<T>::push(T dataIn)
 {
-	Node<T> * newNode = new Node<T>;
-	newNode->data = dataIn;
-	newNode->next = topNode;
-	topNode = newNode;
-	count++;
+		Node<T> * newNode = new Node<T>;
+		newNode->data = dataIn;
+		newNode->next = topNode;
+		topNode = newNode;
+		count++;
 }
 
 template <typename T>
 T Stack<T>::pop()
 {
-	T data = topNode->data;
-	Node<T>* tempNode = topNode;
-	topNode = topNode->next;
-	delete tempNode;
-	count--;
-	return data;
+	if(size()==0) cout << "Stack Error: cannot pop() with Stack.size()==0\n";
+	else
+	{
+		T data = topNode->data;
+		Node<T>* tempNode = topNode;
+		topNode = topNode->next;
+		delete tempNode;
+		count--;
+		return data;
+	}
 }
 
 template <typename T>
