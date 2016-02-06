@@ -19,6 +19,7 @@ private:
 	Node<T>* topNode;
 };
 
+///Constructor for Stack class
 template <typename T>
 Stack<T>::Stack()
 {
@@ -26,18 +27,21 @@ Stack<T>::Stack()
 	topNode = nullptr;
 }
 
+///Destructor for Stack class
 template <typename T>
 Stack<T>::~Stack()
 {
 
 }
 
+///Returns the number of nodes in the Stack
 template <typename T>
 unsigned int Stack<T>::size()
 {
 	return count;
 }
 
+///Puts a new Node on top of the Stack
 template <typename T>
 void Stack<T>::push(T dataIn)
 {
@@ -48,6 +52,7 @@ void Stack<T>::push(T dataIn)
 		count++;
 }
 
+///Removes the top node of the Stack and returns its value
 template <typename T>
 T Stack<T>::pop()
 {
@@ -63,6 +68,7 @@ T Stack<T>::pop()
 	}
 }
 
+///Returns true if the stack is empty, otherwise false
 template <typename T>
 bool Stack<T>::empty()
 {
@@ -70,6 +76,7 @@ bool Stack<T>::empty()
 	else return false;
 }
 
+///Returns the top element of the stack
 template <typename T>
 T Stack<T>::top()
 {

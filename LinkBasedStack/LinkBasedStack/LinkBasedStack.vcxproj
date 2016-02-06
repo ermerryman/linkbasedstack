@@ -64,6 +64,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Complexity_Recorder.hpp" />
+    <ClInclude Include="Complexity_Timer.hpp" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
