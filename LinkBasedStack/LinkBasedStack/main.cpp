@@ -5,26 +5,40 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-	Stack<int> stackOne;
-	stackOne.push(1);
-	stackOne.push(2);
-	stackOne.push(3);
-	cout << "Stack size: " << stackOne.size() << endl;
-	while(!stackOne.empty())
+	//Our Stack to be tested
+	Stack<int> testStack;
+	//Number of elements to test the Stack with
+	int numberOfElements = 0;
+	
+	//Get the number of elements to be tested
+	if(argc==1)
 	{
-		cout << stackOne.pop() << endl;
+		cout << "Error: Not enough arguments, please use: " << argv[0] << " <# of elements>\n";
+		return 0;
 	}
-	stackOne.push(3);
-	stackOne.push(4);
-	stackOne.push(5);
-	cout << stackOne.top() << endl;
-	while(!stackOne.empty())
+	else if(argc>2)
 	{
-		cout << stackOne.pop() << endl;
+		cout << "Error: Too many arguments, please use: " << argv[0] << " <# of elements>\n";
 	}
-	stackOne.pop();
+	else
+	{
+		numberOfElements = atoi(argv[1]);
+	}
+
+	//Push *numberOfElements* elements unto the stack
+	for(int i=1;i<=numberOfElements;i++)
+	{
+		testStack.push(i);
+	}
+
+	//Pop all elements off the stack
+	while(!testStack.empty())
+	{
+		testStack.pop();
+	}
+	cout << testStack.size() << endl;
 
 
 	return 0;
