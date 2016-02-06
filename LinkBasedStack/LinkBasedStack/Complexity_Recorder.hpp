@@ -13,12 +13,17 @@ counts.
  *
  */
 
+//		--Modifications--
+//Added include for algorithm
+//Changed precision in report()
+
 #ifndef COMPLEXITY_RECORDER_HPP
 #define COMPLEXITY_RECORDER_HPP
 
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 
 using std::cout;
 
@@ -41,7 +46,7 @@ public:
   void report(std::ostream& o, int repeat_factor)
   {
     o << std::fixed << std::setprecision(3) << std::setw(12)
-      << median(times)/repeat_factor;
+      << (pow(10,9))*median(times)/repeat_factor;
       o << "     ";
   }
   void reset() {
