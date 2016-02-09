@@ -1,0 +1,37 @@
+An Analysis of the Link-Based Stack Data Structure
+George Abraham (gra3), Keith Kretz (kwk19), Eric Merryman (erm38), Kyle Trusler (kgt5)
+
+Abstract – This research paper presents the Link-Based Stack data structure and will analyze its implementation, uses and performance.  The stack and the derivation of a link-based stack from a linked list are abstractions of containers used throughout programs in order to store, sort and analyze collections of objects.  This research will provide a detailed presentation on the workings of the link-based stack and will use time complexity, space complexity and runtime in order to analyze the data structure.  
+
+I.	Introduction
+
+Our research takes a look at the stack, and a unique implementation of it, which may be one of the most influential and famous data structures found within computer science.  The concept of the stack has been a part of the computer science world for almost as long as the field has existed.  Many believe that the birth of computer science came hand-in-hand with the work done by Alan Turing to progress algorithms and computation.  Turing also introduced the idea of the stack in 1946.  
+Similar to a queue, the stack is a linear data structure that has two basic functions.  These functions are the addition and removal of elements from the stack.  Adding an element is known as “pushing” an element onto the stack and therefore the function used to add to the stack is known as “push”.  On the other hand, removing an element is known to be as “popping” an element off the stack and the function to do so is adequately names “pop”.  Unlike the queue, the stack has a different and unique order in which elements are added onto and removed from the stack.  A queue works like a line at the grocery store as the first person in line will be the first helped and ultimately the first to leave.  The queue implements a first in, first out structure or sometimes referred to as FIFO.  The stack though implements a last in, first out structure earning it the status of a LIFO structure.  An example of a stack is a stack of books.  One is stacked on top of the other and the only way to get to the bottom book is to remove each book stacked on top of it individually.  
+
+ 
+Figure 1: Shows LIFO structure implemented by a stack
+II.	Working Procedures and Complexity
+
+Implementation
+The implementation of this stack resembles a linked list that can be found in the standard template library better known as the STL.  This makes it a unique data structure from the other possible implementation using arrays.  A link based stack uses a collection of nodes which contains 3 parts.  A value is stored within the node as well as a pointer that point to the next element in the list and a pointer that points to the previous element.  The pointer to the previous element is used only in a doubly linked list and may not always be implemented.
+//TODO: Continue on and include a picture showing the “wiring”
+
+Operations with procedure
+The following operations are commonly found operations used to manipulate link-based stacks and the methods in order to accomplish these operations are included as well.  These operations are described using the implementation of a doubly linked list.  Using a singly linked list would require less manipulation, but does not record information that may be useful.
+•	Push:  In order to add an element to the stack, an element must be created.  Next, the pointers that each node contains must be reconfigured to point to the new element.  The previous head node’s “previous” pointer will now point to the new element and the new head node’s “next” pointer will point to the previous head.
+//TODO: Add code
+•	Pop:  The removal of an element must occur in the reversed order of the insertion operation.  Should we delete the element first, the memory will be reallocated and the other pointers will be pointing to random information resulting in undefined behavior.  Therefore when deleting the nth element, we must first change the n-1 element’s “next” pointer to the n+1 element and change the n+1’s element “previous” pointer to the n-1 element.    
+//TODO: Add code
+
+Time Complexity
+Using an iterator for the “top” element allows for the following time complexities for each operation
+•	Inserting:  O(1)
+o	Insertion at the beginning or end of a linked list occurs in constant time.  An element is created and then pointer reconfiguration is used to add an element.  We see that the amount of elements does not affect the time complexity like it could an array-based stack. 
+•	Deletion: O(1)
+o	Deletion at the beginning or end of a linked list is very similar to insertion.  The only difference is that the order of operations occurs in a reversed order.  The pointer reconfiguration is done first and then the element is deleted.  Again, time complexity is not affected by the amount of elements and the operation occurs in constant time.
+•	Accessing an element: O(n)
+o	In order to access certain elements within the stack, the list must first be traversed until the element is reached.  Seeing as there may be as many as ‘n’ elements traversed, the access algorithm sees a time complexity of O(n).  Many stacks implement a function called “peek top” or “top” in order to access the next out element.  This only requires a time complexity of O(1) as it requires one operation that occurs in constant time.     
+
+III.	Experiment results and measures
+IV.	Conclusions
+V.	References
